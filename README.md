@@ -42,7 +42,7 @@ Some planned features include:
 ### Prerequisites
 To run this script all you need is:
 
-*[Python3 installed](https://www.python.org/downloads/) on your system
+* [Python3 installed](https://www.python.org/downloads/) on your system
 
 That's it. You'll also need a web browser, but presumably, you already have one if you're reading this. To install Python3 if you haven't already, pick a version for your OS, and run the provided installer.
 
