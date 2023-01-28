@@ -286,13 +286,6 @@ prompts = {
     },
 }
 
-blacklists = {
-    "charblacklist": ['deathpunk', 'terrifying', 'horrifying',],
-    "creablacklist": ['portrait', 'photojournalism', 'terrifying', 'deathpunk', 'full body', 'detailed face'],
-    "objblacklist": ['deathpunk', 'portrait', 'full body', 'detailed face'],
-    "placeblacklist": ['portrait', 'full body', 'detailed face'],
-}
-
 def main():
     print_dict_structure(prompts)
 
