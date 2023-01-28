@@ -35,6 +35,7 @@ Some planned features include:
 
 ## Install & startup
 
+### Prerequisites
 To run this script all you need is:
 
 *[Python3 installed](https://www.python.org/downloads/) on your system
@@ -44,4 +45,10 @@ That's it. You'll also need a web browser, but presumably, you already have one 
 With Python3 out-of-the-way, open up a terminal / command prompt window, and type pip install gradio
 ![Peek 2023-01-28 05-45](https://user-images.githubusercontent.com/122599135/215262432-5c6b48d1-1caa-4f13-bb1a-310c2f47e54c.gif)
 
-And now you're ready to run the script whenever you please. All you'll have to do is access the script with a single command:
+## Running the script
+And now you're ready to run the script whenever you please. All you'll have to do is access the script with a single command, 
+`python path/to/promptgen.py`:
+![Peek 2023-01-28 05-54](https://user-images.githubusercontent.com/122599135/215262858-05419e00-0618-4553-bb19-1a8868b721b8.gif)
+
+It's best to keep the script and its dependent files in a folder that you can access easily. That'll make it easier to cd to the directory, or simply just drag-and-drop the script into the CLI.
+
