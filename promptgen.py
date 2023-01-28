@@ -5,10 +5,6 @@ from dicts import prompts
 import promptgen as pr
 import json
 import re
-import subprocess
-import pyperclip
-import requests
-import jsoneditor
 
 def createprompt(template, blacklist, adj, sty, qual, matrix):
     global numadjectives
