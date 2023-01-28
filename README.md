@@ -8,6 +8,8 @@ A flexible UI script to help create and expand on prompts for generative AI art 
 
 Input names of lists in the phrase dictionary to get a random selection, and use the special keywords [listadj], [liststy], and [listqual] to get a list of random visual adjectives, styles, and image quality tokens. Fill in random phrases to add some flavor to your prompts, or come up with new ones entirely.
 
+A variety of basic default templates are provided for inspiration, and to show off how the inputs work.
+
 ### Automatic1111 and InvokeAI export support
 ![Peek 2023-01-28 05-18](https://user-images.githubusercontent.com/122599135/215261325-180534af-7b4c-4469-8271-715ff2957752.gif)
 ![Selection_234](https://user-images.githubusercontent.com/122599135/215261452-fb5ad457-0277-4a77-a254-a4452cb2feba.png)
@@ -45,10 +47,19 @@ That's it. You'll also need a web browser, but presumably, you already have one 
 With Python3 out-of-the-way, open up a terminal / command prompt window, and type pip install gradio
 ![Peek 2023-01-28 05-45](https://user-images.githubusercontent.com/122599135/215262432-5c6b48d1-1caa-4f13-bb1a-310c2f47e54c.gif)
 
-## Running the script
+### Running the script
 And now you're ready to run the script whenever you please. All you'll have to do is access the script with a single command, 
 `python path/to/promptgen.py`:
 ![Peek 2023-01-28 05-54](https://user-images.githubusercontent.com/122599135/215262858-05419e00-0618-4553-bb19-1a8868b721b8.gif)
 
 It's best to keep the script and its dependent files in a folder that you can access easily. That'll make it easier to cd to the directory, or simply just drag-and-drop the script into the CLI.
+
+## How-to: Modify the phrase dictionary
+
+For the time being, adding your own phrases, lists, and categories isn't drop-dead easy, but it's still very doable with a simple text editor, or your favorite Python IDE. Anything that can edit a .py will do. Open up `dicts.py`, and add or remove anything and everything you want, as long as it's within prompts = {} and formatted in the same manner as everything else already there (Python dictionary and list syntax).
+
+Here's an example of what it would look like to add a new sub-category and list of phrases in a simple, default text editor:
+![Peek 2023-01-28 06-26](https://user-images.githubusercontent.com/122599135/215264029-a291427b-d9ed-4c5d-bab3-6b6d38599d20.gif)
+
+Now, if you were to load up the script, you could simply type in the Template box [Clothes] and it would select a random phrase from anything within [Clothes]. In that example, there is only the list "Example", but with more lists, a random choice will be made. Typing [Example] in the Template box will pull from the "Example" list in particular.
 
