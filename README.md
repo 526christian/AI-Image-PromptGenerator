@@ -1,5 +1,7 @@
 # AI-Image-PromptGenerator
-A flexible UI script to help create and expand on prompts for generative AI art models, such as Stable Diffusion and MidJourney. Get inspired, and create. Multi-platform, and completely independent.
+PromptGen is a flexible UI script to help create and expand on prompts for generative AI art models, such as Stable Diffusion and MidJourney. Get inspired, and create. Multi-platform, and completely independent. 
+
+Acquire the latest version by git cloning the repository, or [download directly](https://downgit.evecalm.com/#/home?url=https://github.com/526christian/AI-Image-PromptGenerator). For additional info and guides, see the [wiki pages](https://github.com/526christian/AI-Image-PromptGenerator/wiki).
 
 ## Features
 
@@ -54,12 +56,49 @@ And now you're ready to run the script whenever you please. All you'll have to d
 
 It's best to keep the script and its dependent files in a folder that you can access easily. That'll make it easier to cd to the directory, or simply just drag-and-drop the script into the CLI.
 
-## How-to: Modify the phrase dictionary
+## Image examples
 
-For the time being, adding your own phrases, lists, and categories isn't drop-dead easy, but it's still very doable with a simple text editor, or your favorite Python IDE. Anything that can edit a .py will do. Open up `dicts.py`, and add or remove anything and everything you want, as long as it's within prompts = {} and formatted in the same manner as everything else already there (Python dictionary and list syntax).
+Here are examples of images generated using prompts generated from the provided default templates, and with no negative prompts:
 
-Here's an example of what it would look like to add a new sub-category and list of phrases in a simple, default text editor:
-![Peek 2023-01-28 06-26](https://user-images.githubusercontent.com/122599135/215264029-a291427b-d9ed-4c5d-bab3-6b6d38599d20.gif)
+<img src="https://user-images.githubusercontent.com/122599135/215294668-d7bc57d5-16d3-4fa0-abc9-9b5f9e2c285b.png" width="384px">
 
-Now, if you were to load up the script, you could simply type in the Template box [Clothes] and it would select a random phrase from anything within [Clothes]. In that example, there is only the list "Example", but with more lists, a random choice will be made. Typing [Example] in the Template box will pull from the "Example" list in particular.
+`battered hiker in a wondrous cave, gloomy, mysterious, incredible, vector art, chiaroscuro, thick lines, wavy, volumetric lighting, studio quality, sharp focus, detailed`
 
+`Model: Roboetic's Mix`
+
+<img src="https://user-images.githubusercontent.com/122599135/215294755-97bbe86a-03aa-4b85-b1a6-b1ec376efd0d.png" width="384px">
+
+`angelic human woman with a glass, dystopian, breathtaking, stunning, amazing, slow motion, high contrast, portrait, clean lines, highres, 8k, detailed, realistic`
+
+`Model: Roboetic's Mix`
+
+<img src="https://user-images.githubusercontent.com/122599135/215294937-afddb8f9-35bc-4278-9673-67f8b902186c.png" height="384px">
+
+`A fair elf hideout, warm, amazing, otherworldly, cyberpunk, slow motion, hard edge, precise lineart, tonemapping, trending on artstation, professional, hyperdetailed, sharp focus`
+
+`Model: Dreamlike Diffusion`
+
+<img src="https://user-images.githubusercontent.com/122599135/215295006-b26405bf-dc0d-42ac-a2ab-b42ae8a07727.png" width="384px">
+
+`futuristic explorer walking on an abandoned planet, lush, post-apocalyptic, tonal colors, ink, portrait, realistic, UHD, trending on artstation, highres`
+
+`Model: DreamShaper v3.3`
+
+<img src="https://user-images.githubusercontent.com/122599135/215294839-d1470397-cf49-4e38-93a5-97795e587116.png" width="384px">
+
+`glowing futuristic military spaceship flying in front of a celestial moon in outer space, quiet, cozy, pretty, stunning, anime, splatter paint style, linocut, vintage, professional, raytracing, studio quality, UHD`
+
+`Model: Roboetic's Mix`
+
+<img src="https://user-images.githubusercontent.com/122599135/215295567-9b5c4a9e-821e-45f9-8497-050c2be3113d.png" height="384px">
+
+`floral rowboat in the Caribbean Sea, magnificent, ominous, breathtaking, terrifying, cyberpunk, digital painting, sun rays, color page, realistic, HQ, professional, raytracing`
+
+`Model: Elldreth's Stolen Dreams`
+
+## Credits & contributions
+
+Many thanks to:
+
+* junglerally, for being instrumental in brainstorming new ideas and contributing new features, such as the groundwork for the UI that helped move this project along much faster.
+* javi22020, whose [prompt generator](https://github.com/javi22020/Prompt-Generator) was the base for the original iteration of this script. We wouldn't be here without that inspiration base.
