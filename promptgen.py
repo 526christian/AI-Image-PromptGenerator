@@ -5,6 +5,9 @@ from dicts import prompts
 import promptgen as pr
 import json
 import re
+import os
+
+scriptdir = os.path.dirname(os.path.abspath(__file__))
 
 def createprompt(template, blacklist, adj, sty, qual, matrix):
     global numadjectives
@@ -77,23 +80,25 @@ def loadsettings():
 
 def A1111export(a1111, a1111neg, a1111steps, a1111cfg, a1111sampler, a1111seed, a1111width,
                                            a1111height):
-    if a1111:
+    if a1111 == True:
         if a1111seed == 1:
             a1111seed = rn.randint(1, 1999999999)
         A1111output = (f'--prompt "{outputprompt}" --negative_prompt "{a1111neg}" '
                        f'--steps {a1111steps} --cfg_scale {a1111cfg} '
                        f'--sampler_name "{a1111sampler}" --seed {a1111seed}'
                        f' --width {a1111width} --height {a1111height}')
-        with open('A1111list.txt', 'a') as file:
+        filepath1 = os.path.join(scriptdir, 'A1111list.txt')
+        with open(filepath1, 'a') as file:
             saveout = A1111output + (f'\n\n')
             file.write(saveout)
-        with open('A1111recent.txt', 'w') as file:
+        filepath2 = os.path.join(scriptdir, 'A1111recent.txt')
+        with open(filepath2, 'w') as file:
             file.write(A1111output)
         return gr.update(value=A1111output, visible=True)
 
 def invokeexport(invoke, invneg, invwidth, invheight, inviter, invsteps, invcfg, invseed, invsampler,
                  invoutputdir, invhires, invgrid):
-    if invoke:
+    if invoke == True:
         if invseed == 1:
             invseed = rn.randint(1, 1999999999)
 
@@ -106,11 +111,14 @@ def invokeexport(invoke, invneg, invwidth, invheight, inviter, invsteps, invcfg,
             invoutput += (f' --hires_fix')
         if invgrid:
             invoutput += (f' -g')
-        with open('Invokelist.txt', 'a') as file:
+        filepath1 = os.path.join(scriptdir, 'Invokelist.txt')
+        with open(filepath1, 'a') as file:
             saveinvout = invoutput + (f'\n\n')
             file.write(saveinvout)
-        with open('Invokerecent.txt', 'w') as file:
-            file.write(invoutput)
+        filepath2 = os.path.join(scriptdir, 'Invokerecent.txt')
+        with open(filepath2, 'w') as file:
+            saveinvout = invoutput
+            file.write(saveinvout)
         return gr.update(value=invoutput, visible=True)
 
 
@@ -220,7 +228,7 @@ def main():
         with gr.Tab("Export Options"):
             with gr.Row():
                     with gr.Column(scale=1, min_width=350):
-                        a1111 = gr.Checkbox(value=False, label="Save prompts in .txt for import in A1111 WebUI")
+                        a1111 = gr.Checkbox(label="Save prompts in .txt for import in A1111 WebUI")
                         a1111neg = gr.Textbox(label="Negative prompt", placeholder="Reminder: parentheses around ((tokens))"
                                                                                    " for extra emphasis")
                         a1111steps = gr.Slider(label="Sampling steps", minimum=5, maximum=150, value=30, step=1)
@@ -236,8 +244,7 @@ def main():
                         a1111width = gr.Slider(label="Image width", minimum=64, maximum=2048, value=512, step=64)
                         a1111height = gr.Slider(label="Image height", minimum=64, maximum=2048, value=704, step=64)
                     with gr.Column(scale=1, min_width=350):
-                        invoke = gr.Checkbox(value=False,
-                                         label="Save prompts in .txt for import in InvokeAI / use InvokeAI CLI commands")
+                        invoke = gr.Checkbox(label="Save prompts in .txt for import in InvokeAI / use InvokeAI CLI commands")
                         invneg = gr.Textbox(label="Negative prompt", placeholder="Reminder: + next to token or "
                                                                                       "phrase in parentheses for more emphasis,"
                                                                                       " - for less emphasis")
@@ -262,17 +269,15 @@ def main():
             savetemp.click(fn=createtemplate,inputs=[template, tempname], outputs=None)
         if blacklist and blackname != "":
             saveblack.click(fn=createblacklist, inputs=[blacklist, blackname], outputs=None)
-        a1111.change(fn=hideA1111output, inputs=a1111, outputs=a1111rec)
-        invoke.change(fn=hideinvokeoutput, inputs=invoke, outputs=invokerec)
         btn.click(createprompt, inputs=[template, blacklist, adj, sty, qual, matrix], outputs=prompt)
         #if conditions necessary to avoid Gradio causing a race condition from executing invokeexport and A1111export
         #in parallel with createprompt
-        if a1111:
-            btn.click(fn=A1111export, inputs=[a1111, a1111neg, a1111steps, a1111cfg, a1111sampler, a1111seed, a1111width,
-                                            a1111height], outputs=a1111rec)
-        if invoke:
-            btn.click(fn=invokeexport, inputs=[invoke, invneg, invwidth, invheight, inviter, invsteps,
-                                               invcfg, invseed, invsampler, invoutputdir, invhires, invgrid], outputs=invokerec)
+        a1111.change(fn=hideA1111output, inputs=a1111, outputs=a1111rec)
+        invoke.change(fn=hideinvokeoutput, inputs=invoke, outputs=invokerec)
+        prompt.change(fn=A1111export, inputs=[a1111, a1111neg, a1111steps, a1111cfg, a1111sampler, a1111seed, a1111width,
+                                        a1111height], outputs=a1111rec)
+        prompt.change(fn=invokeexport, inputs=[invoke, invneg, invwidth, invheight, inviter, invsteps,
+                                           invcfg, invseed, invsampler, invoutputdir, invhires, invgrid], outputs=invokerec)
     demo.launch()
 
 if __name__ == "__main__":
