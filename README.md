@@ -28,20 +28,20 @@ Don't want certain phrases in your outputs, but don't want to delete them comple
 
 Some planned features include:
 
-*Settings / state saving
-*New, and more specific phrase lists and categories
-*A complete restructure of the phrase selection system to add your own lists and categories easier
-*A prompt log box
+* Settings / state saving
+* New, and more specific phrase lists and categories
+* A complete restructure of the phrase selection system to add your own lists and categories easier
+* A prompt log box
 
 ## Install & startup
 
 To run this script all you need is:
 
-*[Python3](https://www.python.org/downloads/) installed on your system
+*[Python3 installed](https://www.python.org/downloads/) on your system
 
-That's it. You'll also need a web browser, but presumably, you already have one if you're reading this. To install Python3 if you haven't already, pick a version for your OS, and follow the installation steps.
+That's it. You'll also need a web browser, but presumably, you already have one if you're reading this. To install Python3 if you haven't already, pick a version for your OS, and run the provided installer.
 
 With Python3 out-of-the-way, open up a terminal / command prompt window, and type pip install gradio
-![Peek 2023-01-28 05-40](https://user-images.githubusercontent.com/122599135/215262158-9ed561c8-7050-4bc0-a401-781338317bc5.gif)
+![Peek 2023-01-28 05-45](https://user-images.githubusercontent.com/122599135/215262432-5c6b48d1-1caa-4f13-bb1a-310c2f47e54c.gif)
 
-And now you're ready to run the script whenever you please.
+And now you're ready to run the script whenever you please. All you'll have to do is access the script with a single command:
