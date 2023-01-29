@@ -36,6 +36,7 @@ Some planned features include:
 * New, and more specific phrase lists and categories
 * A complete restructure of the phrase selection system to add your own lists and categories easier
 * A prompt log box
+* Importing and conversion between UI Stable Diffusion implementations' prompt syntax
 
 ## Install & startup
 
