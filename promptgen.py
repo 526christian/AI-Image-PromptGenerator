@@ -277,8 +277,6 @@ def main():
         if blacklist and blackname != "":
             saveblack.click(fn=createblacklist, inputs=[blacklist, blackname], outputs=None)
         btn.click(createprompt, inputs=[template, blacklist, adj, sty, qual, matrix], outputs=prompt)
-        #if conditions necessary to avoid Gradio causing a race condition from executing invokeexport and A1111export
-        #in parallel with createprompt
         a1111.change(fn=hideA1111output, inputs=a1111, outputs=a1111rec)
         invoke.change(fn=hideinvokeoutput, inputs=invoke, outputs=invokerec)
         prompt.change(fn=A1111export, inputs=[a1111, a1111neg, a1111steps, a1111cfg, a1111sampler, a1111seed, a1111width,
