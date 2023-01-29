@@ -96,7 +96,7 @@ Here are examples of images generated using prompts generated from the provided 
 
 `Model: Elldreth's Stolen Dreams`
 
-## Credits & contributions
+## Contributors and credits
 
 Many thanks to:
 
