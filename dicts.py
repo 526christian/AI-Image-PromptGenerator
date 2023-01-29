@@ -59,7 +59,6 @@ prompts = {
                             'gloves', 'scarf', 'tophat', 'monocle', 'scroll', 'dagger', 'skirt', 'tiara', 'crown',
                             'staff', 'wand', 'belt', 'cell phone', 'broom', 'pitchfork', 'techwear', 'long hair',
                             'short hair', 'helmet', 'animal ears',],
-
         },
         "Creatures": {
 
@@ -162,7 +161,7 @@ prompts = {
                     'in the deep ocean', 'in the Arctic Ocean', ],
         },
 
-        "object_sets": {
+        "ObjectSets": {
 
             "LandObjSets": ['street', 'beach', 'mountainous landscape', 'landscape', 'lake', 'city', 'river', 'valley',
                      'house near a lake', 'house', 'house near the beach', 'nature', 'town', 'forest', 'swamp',
