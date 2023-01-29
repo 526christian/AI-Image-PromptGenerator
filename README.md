@@ -10,6 +10,8 @@ Acquire the latest version by git cloning the repository, or [download directly]
 
 Input bracketed [names of lists in the phrase dictionary](https://github.com/526christian/AI-Image-PromptGenerator/wiki/Phrase-keywords-and-structure) to get a random selection, and use the special keywords [listadj], [liststy], and [listqual] to get a list of random visual adjectives, styles, and image quality tokens. Fill in random phrases to add some flavor to your prompts, or come up with new ones entirely.
 
+Use the sliders to instantly change the amount of random phrases picked from [listadj], [liststy], and [listqual] for your needs and to adjust to how different models respond.
+
 A variety of basic default templates are provided for inspiration, and to show off how the inputs work.
 
 ### Automatic1111 and InvokeAI export support
