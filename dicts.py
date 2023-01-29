@@ -6,7 +6,7 @@ prompts = {
                       'beautiful', 'ominous', 'gloomy', 'post-apocalyptic', 'warm', 'stunning', 'breathtaking',
                       'fascinating', 'peaceful', 'surreal', 'celestial', 'ancient', 'ethereal', 'dramatic', 'horrific',
                       'terrifying', 'emotional', 'dystopian', 'dark', 'magical', 'apocalyptic',
-                      'fantasy', 'alien', 'otherworldly', 'foggy', 'Victorian', 'trippy', 'desolate',
+                      'fantasy', 'otherworldly', 'foggy', 'Victorian', 'trippy', 'desolate',
                       'eldritch', 'gothic', 'futuristic', 'snowy', 'fantastical', 'lush', 'mysterious', 'icy',
                       'flaming', 'grand', 'western', 'bright', 'fair', 'pleasant', 'quaint', 'colorful', 'wild',
                       'magnificent', 'sooty', 'gritty', 'grim', 'extradimensional', 'simplistic', 'dim', 'cyberpunk',
@@ -120,7 +120,7 @@ prompts = {
                         'Library of Alexandria', 'pyramids', 'shop', 'suburb', 'waterfall', 'pier', 'fountain',
                         'volcanic landscape', 'laboratory', 'haunted house', 'prison', 'factory', 'canyon', 'church',
                         'colosseum', 'roller coaster', 'palace', 'bridge', 'tundra', 'aquarium', 'hallway',
-                        'military base', 'spaceship hangar',],
+                        'military base', 'spaceship hangar', 'alien city', ],
 
         "CreaSets": {
 
@@ -174,7 +174,7 @@ prompts = {
                      'Library of Alexandria', 'pyramids', 'shop', 'suburb', 'waterfall', 'pier', 'fountain',
                      'volcanic landscape', 'laboratory', 'haunted house', 'prison', 'factory', 'canyon', 'church',
                      'colosseum', 'roller coaster', 'palace', 'bridge', 'tundra', 'aquarium', 'hallway',
-                     'military base', 'hangar', ],
+                     'military base', 'hangar', 'alien city', ],
 
             # Sea object settings and object relations are combined for sake of making sense in output. Feel free to
             # change this if you wish.
@@ -239,19 +239,20 @@ prompts = {
             'alien megastructure', 'alien megastructure in outer space', 'orbital bombardment', 'dwarven keep',
             'elf hideout'],
 
-        "Relations": {
+    },
 
-            "LandRels": ['near a', 'in a', 'next to a', 'in front of a', 'inside of a', 'outside of a', ],
+    "Relations": {
 
-            "AirCreaRels": ['flying above a', 'flying by a', 'flying in front of a', 'flying past a', 'perched by a',
-                              'perched on a', ],
+        "LandRels": ['near a', 'in a', 'next to a', 'in front of a', 'inside of a', 'outside of a', ],
 
-            "AirObjRels": ['flying above a', 'flying by a', 'flying in front of a', 'flying past a', 'landing by a',
-                            'flying close above a', 'hovering above a', ],
+        "AirCreaRels": ['flying above a', 'flying by a', 'flying in front of a', 'flying past a', 'perched by a',
+                        'perched on a', ],
 
-            "SpaceObjRels": ['orbiting a', 'flying towards a', 'flying in a', 'docking with a', 'in a', 'flying by a',
-                              'flying by a', 'floating by a', 'flying in front of a', 'orbiting in front of a'],
-        },
+        "AirObjRels": ['flying above a', 'flying by a', 'flying in front of a', 'flying past a', 'landing by a',
+                       'flying close above a', 'hovering above a', ],
+
+        "SpaceObjRels": ['orbiting a', 'flying towards a', 'flying in a', 'docking with a', 'in a', 'flying by a',
+                         'flying by a', 'floating by a', 'flying in front of a', 'orbiting in front of a'],
     },
 
     "VisualModifiers": {
