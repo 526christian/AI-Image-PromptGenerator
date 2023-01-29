@@ -88,9 +88,10 @@ def A1111export(a1111, a1111neg, a1111steps, a1111cfg, a1111sampler, a1111seed, 
                        f'--sampler_name "{a1111sampler}" --seed {a1111seed}'
                        f' --width {a1111width} --height {a1111height}')
         filepath1 = os.path.join(scriptdir, 'A1111list.txt')
-        with open(filepath1, 'a') as file:
-            saveout = A1111output + (f'\n\n')
-            file.write(saveout)
+        with open(filepath1, 'r+') as file:
+            existing_text = file.read()
+            file.seek(0)
+            file.write(A1111output + '\n\n' + existing_text)
         filepath2 = os.path.join(scriptdir, 'A1111recent.txt')
         with open(filepath2, 'w') as file:
             file.write(A1111output)
@@ -112,9 +113,10 @@ def invokeexport(invoke, invneg, invwidth, invheight, inviter, invsteps, invcfg,
         if invgrid:
             invoutput += (f' -g')
         filepath1 = os.path.join(scriptdir, 'Invokelist.txt')
-        with open(filepath1, 'a') as file:
-            saveinvout = invoutput + (f'\n\n')
-            file.write(saveinvout)
+        with open(filepath1, 'r+') as file:
+            existing_text = file.read()
+            file.seek(0)
+            file.write(invoutput + '\n\n' + existing_text)
         filepath2 = os.path.join(scriptdir, 'Invokerecent.txt')
         with open(filepath2, 'w') as file:
             saveinvout = invoutput
