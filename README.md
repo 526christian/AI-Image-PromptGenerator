@@ -8,7 +8,7 @@ Acquire the latest version by git cloning the repository, or [download directly]
 ### Keyword-based system with configurable templates
 ![Peek 2023-01-28 05-09](https://user-images.githubusercontent.com/122599135/215260744-5788b9fc-0265-40a4-b783-0d8cac4d7ed3.gif)
 
-Input [names of lists in the phrase dictionary](https://github.com/526christian/AI-Image-PromptGenerator/wiki/Phrase-keywords-and-structure) to get a random selection, and use the special keywords [listadj], [liststy], and [listqual] to get a list of random visual adjectives, styles, and image quality tokens. Fill in random phrases to add some flavor to your prompts, or come up with new ones entirely.
+Input bracketed [names of lists in the phrase dictionary](https://github.com/526christian/AI-Image-PromptGenerator/wiki/Phrase-keywords-and-structure) to get a random selection, and use the special keywords [listadj], [liststy], and [listqual] to get a list of random visual adjectives, styles, and image quality tokens. Fill in random phrases to add some flavor to your prompts, or come up with new ones entirely.
 
 A variety of basic default templates are provided for inspiration, and to show off how the inputs work.
 
