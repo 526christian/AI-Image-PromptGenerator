@@ -73,7 +73,8 @@ def search_dict(prompts, target):
 
 
 def loadsettings():
-    with open('settings.json', 'r') as f:
+    filepath1 = os.path.join(scriptdir, 'settings.json')
+    with open(filepath1, 'r') as f:
         settings = json.load(f)
     return settings
 
@@ -88,10 +89,9 @@ def A1111export(a1111, a1111neg, a1111steps, a1111cfg, a1111sampler, a1111seed, 
                        f'--sampler_name "{a1111sampler}" --seed {a1111seed}'
                        f' --width {a1111width} --height {a1111height}')
         filepath1 = os.path.join(scriptdir, 'A1111list.txt')
-        with open(filepath1, 'r+') as file:
-            existing_text = file.read()
-            file.seek(0)
-            file.write(A1111output + '\n\n' + existing_text)
+        with open(filepath1, 'a') as file:
+            saveout = A1111output + (f'\n\n')
+            file.write(saveout)
         filepath2 = os.path.join(scriptdir, 'A1111recent.txt')
         with open(filepath2, 'w') as file:
             file.write(A1111output)
@@ -113,10 +113,9 @@ def invokeexport(invoke, invneg, invwidth, invheight, inviter, invsteps, invcfg,
         if invgrid:
             invoutput += (f' -g')
         filepath1 = os.path.join(scriptdir, 'Invokelist.txt')
-        with open(filepath1, 'r+') as file:
-            existing_text = file.read()
-            file.seek(0)
-            file.write(invoutput + '\n\n' + existing_text)
+        with open(filepath1, 'a') as file:
+            saveinvout = invoutput + (f'\n\n')
+            file.write(saveinvout)
         filepath2 = os.path.join(scriptdir, 'Invokerecent.txt')
         with open(filepath2, 'w') as file:
             saveinvout = invoutput
@@ -140,34 +139,40 @@ def getList(d):
 
 
 def templatelist():
-    with open("templates.json", "r") as file:
+    filepath1 = os.path.join(scriptdir, 'templates.json')
+    with open(filepath1, "r") as file:
         templates = json.load(file)
     key_list = list(templates.keys())
     return key_list
 
 def createtemplate(template, tempname):
     templates[tempname] = template
-    with open("templates.json", "w") as savedtemps:
+    filepath1 = os.path.join(scriptdir, 'templates.json')
+    with open(filepath1, "w") as savedtemps:
         json.dump(templates, savedtemps)
 
 def openTemplates():
-    with open('templates.json', 'r') as openfile:
+    filepath1 = os.path.join(scriptdir, 'templates.json')
+    with open(filepath1, 'r') as openfile:
         templates = json.load(openfile)
     return templates
 
 def blacklistlist():
-    with open("blacklists.json", "r") as keys:
+    filepath1 = os.path.join(scriptdir, 'blacklists.json')
+    with open(filepath1, "r") as keys:
         b = json.load(keys)
     key_blacks = list(b.keys())
     return key_blacks
 
 def createblacklist(blacklist, blacklistname):
+    filepath1 = os.path.join(scriptdir, 'blacklists.json')
     blacklists[blacklistname] = blacklist
-    with open("blacklists.json", "w") as savedblack:
+    with open(filepath1, "w") as savedblack:
         json.dump(blacklists, savedblack)
 
 def openblacklist():
-    with open('blacklists.json', 'r') as bl:
+    filepath1 = os.path.join(scriptdir, 'blacklists.json')
+    with open(filepath1, 'r') as bl:
         blacklists = json.load(bl)
     return blacklists
 
