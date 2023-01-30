@@ -59,7 +59,9 @@ prompts = {
                             'crystal', 'gem', 'ring', 'jewelry', 'bandana', 'amulet', 'shield', 'pouch', 'headphones',
                             'gloves', 'scarf', 'tophat', 'monocle', 'scroll', 'dagger', 'skirt', 'tiara', 'crown',
                             'staff', 'wand', 'belt', 'cell phone', 'broom', 'pitchfork', 'techwear', 'long hair',
-                            'short hair', 'helmet', 'animal ears', 'spear', 'mustache', 'cane', 'umbrella', 'fan', ],
+                            'short hair', 'helmet', 'animal ears', 'spear', 'mustache', 'cane', 'umbrella', 'fan', 
+                            'compass', 'flashlight', 'grimoire', 'locket', 'microphone', 'musket',
+                            'perfume', 'rope', 'snorkel', 'watch', ],
         },
         "Creatures": {
 
@@ -68,14 +70,22 @@ prompts = {
                                'panther', 'wendigo', 'dwarf', 'goblin', 'chimera', 'kitsune', 'bunny', 'serpent',
                                'horse', 'jinn', 'minotaur', 'mammoth', 'deer', 'Anubis', 'monster', 'werewolf',
                                'elephant', 'ogre', 'monkey', 'bear', 'giraffe', 'hedgehog', 'meerkat', 'naga', 
-                               'orc', 'warlock', 'troll', 'centaur', 'lamia', 'kangaroo', 'capybara', 'mouse', ],
+                               'orc', 'warlock', 'troll', 'centaur', 'lamia', 'kangaroo', 'capybara', 'mouse',
+                               'sphinx', 'gorgon', 'siren', 'hydra', 'dragon', 'chupacabra', 'jackalope',
+                                'sasquatch', 'were-tiger', 'were-snake', 'were-deer', 'were-lion', 'were-bear',
+                                'were-wolf', 'yeti', 'zombie'],
 
             "AirCreas": ['phoenix', 'hawk', 'eagle', 'bat', 'owl', 'hummingbird', 'bird', 'bee', 'bumblebee',
-                              'dragon', 'griffin', 'raven', 'crow', 'wyvern', 'pegasus', 'harpy', 'fairy', ],
+                              'dragon', 'griffin', 'raven', 'crow', 'wyvern', 'pegasus', 'harpy', 'fairy',
+                              'moth', 'butterfly', 'dragonfly', 'angel', 'gryphon', 'roc', 'condor', 'vulture',
+                              'stork', 'swan', 'dove', 'parrot', 'peacock', 'seagull',],
 
             "SeaCreas": ['shark', 'Cthulhu', 'kraken', 'megalodon', 'fish', 'octopus', 'Lochness Monster',
                               'sea monster', 'giant squid', 'deep sea giant isopod', 'crab', 'lobster', 'mermaid',
-                              'leviathan', 'water dragon', 'sea serpent', 'eel', ],
+                              'leviathan', 'water dragon', 'sea serpent', 'eel', 'jellyfish', 'clam', 'starfish',
+                                'manta ray', 'whale', 'dolphin', 'seal', 'otter', 'walrus', 'seahorse', 'cuttlefish',
+                                'ray', 'crustacean', 'porpoise', 'turtle', 'tuna', 'salmon', 'shrimp', 'hippopotamus',
+                                'squid', 'stingray', 'prawn', 'oyster', 'urchin'],
 
         },
         "Vehicles": {
@@ -84,11 +94,15 @@ prompts = {
                              'pickup truck', 'semi truck', 'car', 'sports car', 'muscle car', 'exotic car',
                              'personnel carrier', 'police cruiser', 'bus', 'bicycle', 'limousine', 'double-decker bus',
                              'boxcar', 'go-kart', 'forklift', 'golf cart', 'bumper car', 'sled', 'sleigh', 'unicycle',
-                             'ATV', 'skateboard', 'lawn mower', 'wheelchair'],
+                             'ATV', 'skateboard', 'lawn mower', 'wheelchair', 'fire truck', 'ambulance', 'bulldozer',
+                             'construction truck', 'farm tractor', 'dune buggy', 'monster truck',
+                             'hot rod', 'military vehicle', 'street racer', 'touring car', 'off-road vehicle'],
 
             "AirVehicles": ['fighter jet', 'space shuttle', 'dropship', 'fighter', 'starfighter', 'shuttle',
                             'helicopter', 'attack helicopter', 'bomber jet', 'biplane', 'hot air balloon', 'passenger jet',
-                            'zeppelin', 'stealth plane','drone', 'jetpack'],
+                            'zeppelin', 'stealth plane','drone', 'jetpack', 'jumbo jet', 'sst', 'blimp', 'propeller plane',
+                            'aircraft carrier', 'spacecraft', 'airship', 'parachute', 'gyrocopter',
+                            'harrier jet', 'helicarrier', 'stratosphere balloon', 'spaceplane', 'airliner', 'microjet', ],
 
             "SeaVehicles": ['ship', 'galleon', 'pirate ship', 'frigate', 'boat', 'submarine', 'aircraft carrier',
                             'speedboat', 'The Flying Dutchman', 'dreadnought', 'icebreaker', 'cruise ship',
@@ -282,7 +296,8 @@ prompts = {
 
         "Qualities": ['realistic', '8k', '3840x2160', 'detailed', 'hyperdetailed', 'sharp focus', 'masterpiece', 'absurdres',
                      'highres', 'professional', 'studio quality', 'HQ', 'UHD', 'HDR',
-                     'volumetric lighting', 'raytracing', 'ambient occlusion', 'trending on artstation', 'photojournalism', ],
+                     'volumetric lighting', 'raytracing', 'ambient occlusion', 'trending on artstation', 'photojournalism', 
+                     'soft focus', 'high contrast', 'low light', 'gritty', 'depth of field', ],
 
     },
 }
