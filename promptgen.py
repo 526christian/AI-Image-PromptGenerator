@@ -9,12 +9,12 @@ import os
 
 scriptdir = os.path.dirname(os.path.abspath(__file__))
 
-def createprompt(template, blacklist, adj, sty, qual, matrix):
+def createprompt(template, blacklist, adj, sty, qual, matrix, count):
     global numadjectives
     global numstyles
     global numquality
     global usepromptmatrix
-    global promptlog
+    promptlog = open("log.txt", "a+")
     numadjectives = adj
     numstyles = sty
     numquality = qual
@@ -31,13 +31,11 @@ def createprompt(template, blacklist, adj, sty, qual, matrix):
                      "numsamples": numquality},
     }
     global outputprompt
-    outputprompt = give_output(prompts, template, blacklist)
-    print(f'\n{outputprompt}\n')
-    previousprompts.append(outputprompt)
-    promptlog = loadpreviousprompts(previousprompts)
+    for c in range(count):
+        outputprompt = give_output(prompts, template, blacklist)
+        print(f'\n{outputprompt}\n')
+        promptlog.write(outputprompt + "\n\n")
     return outputprompt
-
-previousprompts = []
 
 def give_output(prompts, template, blacklist):
     keywords = re.findall(r'\[(.*?)\]', template)
@@ -78,6 +76,13 @@ def loadsettings():
         settings = json.load(f)
     return settings
 
+def loadlog():
+    with open("log.txt", 'r') as promptlog:
+        return promptlog.read()
+
+def clearlog():
+    with open("log.txt", 'w') as promptlog:
+        promptlog.close()
 
 def A1111export(a1111, a1111neg, a1111steps, a1111cfg, a1111sampler, a1111seed, a1111width,
                                            a1111height):
@@ -127,16 +132,8 @@ def copy2clip(txt): #Only works on windows, if it were mac '|clip' would be repl
     cmd='echo '+txt.strip()+'|clip'
     return check_call(cmd, shell=True)
 
-
-def loadpreviousprompts(previousprompts):
-    log = ""
-    for p in previousprompts:
-        log += p + ' \n '
-    return log
-
 def getList(d):
     return [*d]
-
 
 def templatelist():
     filepath1 = os.path.join(scriptdir, 'templates.json')
@@ -206,6 +203,7 @@ def main():
             with gr.Row():
                 with gr.Column(scale=1, min_width=300):
                     type = gr.Dropdown(getList(key_list))
+                    count = gr.Number(value=1, label="Count", precision=0)
                     template = gr.Textbox(label="Template", interactive=True, placeholder="Input text and bracketed references to lists, "
                                                                         "see default templates for examples")
                     adj = gr.Slider(label="Adjectives to list", minimum=0, maximum=10, value=4, step=1)
@@ -231,6 +229,10 @@ def main():
                                                                                  "that blacklist. Restart to have blacklist "
                                                                                  "in dropdown menu.")
                         saveblack = gr.Button(value="Save current blacklist")
+                    with gr.Accordion("Log", open=False):
+                        logTextBox = gr.Textbox(label="Log", lines=30, max_lines=75)
+                        clearLog = gr.Button(value= "Clear Log")
+
                     # log = gr.Textbox(loadpreviousprompts(previousprompts=), label="Log")
         with gr.Tab("Export Options"):
             with gr.Row():
@@ -276,9 +278,12 @@ def main():
             savetemp.click(fn=createtemplate,inputs=[template, tempname], outputs=None)
         if blacklist and blackname != "":
             saveblack.click(fn=createblacklist, inputs=[blacklist, blackname], outputs=None)
-        btn.click(createprompt, inputs=[template, blacklist, adj, sty, qual, matrix], outputs=prompt)
+        btn.click(createprompt, inputs=[template, blacklist, adj, sty, qual, matrix, count], outputs=prompt)
+        clearLog.click(fn=clearlog, inputs=None, outputs=None)
+        clearLog.click(fn=loadlog, inputs=None, outputs=logTextBox)
         a1111.change(fn=hideA1111output, inputs=a1111, outputs=a1111rec)
         invoke.change(fn=hideinvokeoutput, inputs=invoke, outputs=invokerec)
+        prompt.change(fn=loadlog, inputs=None, outputs=logTextBox)
         prompt.change(fn=A1111export, inputs=[a1111, a1111neg, a1111steps, a1111cfg, a1111sampler, a1111seed, a1111width,
                                         a1111height], outputs=a1111rec)
         prompt.change(fn=invokeexport, inputs=[invoke, invneg, invwidth, invheight, inviter, invsteps,
