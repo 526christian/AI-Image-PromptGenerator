@@ -10,14 +10,15 @@ prompts = {
                       'eldritch', 'gothic', 'futuristic', 'snowy', 'fantastical', 'lush', 'mysterious', 'icy',
                       'flaming', 'grand', 'western', 'bright', 'fair', 'pleasant', 'quaint', 'colorful', 'wild',
                       'magnificent', 'sooty', 'gritty', 'grim', 'extradimensional', 'simplistic', 'dim', 'cyberpunk',
-                      'medieval', 'grimdark', 'abandoned', ],
+                      'medieval', 'grimdark', 'abandoned', 'spooky', 'cottagecore', 'frozen', ],
 
         "ObjAdjs": ['futuristic', 'glowing', 'ornate', 'scuffed', 'pristine', 'rustic', 'floral', 'intricate',
                       'smooth', 'shiny', 'dusty', 'dirty', 'colorful', 'high-tech', 'modern', 'cute', 'magical',
                       'ancient', 'detailed', 'refined', 'unique', 'vintage', 'polished', 'elegant', 'sophisticated',
                       'complex', 'damaged', 'worn', 'weathered', 'archaic', 'miniscule', 'small',
                       'large', 'massive', 'humongous', 'bulbous', 'chunky', 'flat', 'rugged', 'neon', 'powerful',
-                    'long', 'wide', 'filthy', 'mechanical', 'medieval', ],
+                      'long', 'wide', 'filthy', 'mechanical', 'medieval', 'cyberpunk', 'old fashioned', 'old', 'fantasy',
+                      'clean', ],
 
         "CharAdjs": ['armored', 'heavily armored', 'divine', 'cyborg', 'medieval', 'stylish', 'angelic',
                        'female', 'male', 'confused', 'lost', 'old', 'young', 'attractive', 'intimidating', 'battered',
@@ -50,7 +51,7 @@ prompts = {
                        'hobo', 'detective', 'spy', 'jester', 'magician', 'maid', 'nurse', 'lifeguard', 'student',
                        'surgeon', 'treasure hunter', 'waiter', 'valkyrie', 'angel', 'video game character', 'lara croft', 
                        'sorceress', 'huntress', 'paladin', 'ranger', 'spy', 'archaeologist', 'sailor', 'nun', 'monk', 
-                       'terrorist', 'dominatrix', 'hiker', ],
+                       'terrorist', 'dominatrix', 'hiker', 'biker', 'peasant', 'deity'],
 
             "CharObjs": ['knife', 'weapon', 'flower', 'plushie', 'mirror', 'glass', 'cape', 'backpack', 'dress',
                             'suit', 'bodysuit', 'artifact', 'map', 'sword', 'carbine', 'smartphone', 'book',
@@ -58,7 +59,7 @@ prompts = {
                             'crystal', 'gem', 'ring', 'jewelry', 'bandana', 'amulet', 'shield', 'pouch', 'headphones',
                             'gloves', 'scarf', 'tophat', 'monocle', 'scroll', 'dagger', 'skirt', 'tiara', 'crown',
                             'staff', 'wand', 'belt', 'cell phone', 'broom', 'pitchfork', 'techwear', 'long hair',
-                            'short hair', 'helmet', 'animal ears',],
+                            'short hair', 'helmet', 'animal ears', 'spear', 'mustache', 'cane', 'umbrella', 'fan', ],
         },
         "Creatures": {
 
@@ -67,7 +68,7 @@ prompts = {
                                'panther', 'wendigo', 'dwarf', 'goblin', 'chimera', 'kitsune', 'bunny', 'serpent',
                                'horse', 'jinn', 'minotaur', 'mammoth', 'deer', 'Anubis', 'monster', 'werewolf',
                                'elephant', 'ogre', 'monkey', 'bear', 'giraffe', 'hedgehog', 'meerkat', 'naga', 
-                            'orc', 'warlock', 'troll', 'centaur'],
+                               'orc', 'warlock', 'troll', 'centaur', 'lamia', 'kangaroo', 'capybara', 'mouse', ],
 
             "AirCreas": ['phoenix', 'hawk', 'eagle', 'bat', 'owl', 'hummingbird', 'bird', 'bee', 'bumblebee',
                               'dragon', 'griffin', 'raven', 'crow', 'wyvern', 'pegasus', 'harpy', 'fairy', ],
@@ -110,7 +111,7 @@ prompts = {
                         'river', 'valley', 'house near a lake', 'house', 'house near the beach', 'skyscrapers',
                         'nature', 'town', 'forest', 'swamp', 'urban landscape', 'natural landscape', 'alien landscape',
                         'city', 'town streets', 'liminal space', 'abandoned building', 'fort', 'thunderstorm',
-                        'snowstorm',
+                        'snowstorm', 'amusement park', 'water park', 'jurassic park', 'mini golf course'
                         'nature park', 'battlefield', 'castle', 'detailed background', 'epic sky', 'kitchen', 'bedroom',
                         'living room', 'office', 'throne room', 'cockpit', 'fireplace', 'cargo bay', 'dock', 'meadow',
                         'stream', 'cave', 'stadium', 'alleyway', 'market', 'theater', 'workshop', 'field', 'farm',
@@ -174,7 +175,7 @@ prompts = {
                      'Library of Alexandria', 'pyramids', 'shop', 'suburb', 'waterfall', 'pier', 'fountain',
                      'volcanic landscape', 'laboratory', 'haunted house', 'prison', 'factory', 'canyon', 'church',
                      'colosseum', 'roller coaster', 'palace', 'bridge', 'tundra', 'aquarium', 'hallway',
-                     'military base', 'hangar', 'alien city', ],
+                     'military base', 'hangar', 'alien city', 'mini golf course'],
 
             # Sea object settings and object relations are combined for sake of making sense in output. Feel free to
             # change this if you wish.
@@ -210,7 +211,7 @@ prompts = {
 
         "AllSets": [
             'street', 'beach', 'mountainous landscape', 'landscape', 'lake', 'city', 'river', 'valley',
-            'house near a lake',
+            'house near a lake', ' mini golf course', 'water park', 'amusement park', ' jurassic park'
             'house', 'the beach', 'skyscrapers', 'nature', 'town', 'forest', 'swamp', 'urban landscape',
             'natural landscape',
             'alien landscape', 'city streets', 'town streets', 'liminal space', 'abandoned building', 'fort',
