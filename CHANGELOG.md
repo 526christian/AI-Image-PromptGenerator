@@ -13,6 +13,7 @@ The below changes were made to `promptgen.py`.
 ### Added
 
 * Added support for multiple generated prompts in one click for A1111 and Invoke outputs.
+* Added support for being able to delete templates.json, blacklists.json, and the log.txt. This makes it easier to forego the default templates and blacklists to create your own without editing the .jsons.
 
 ### Removed
 
