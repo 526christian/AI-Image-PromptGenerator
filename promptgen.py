@@ -9,12 +9,24 @@ import os
 
 scriptdir = os.path.dirname(os.path.abspath(__file__))
 
+#putting log file in script directory
+log = os.path.join(scriptdir, 'log.txt')
+
+#templates file
+templatefile = os.path.join(scriptdir, 'templates.json')
+
+#blacklists file
+blacklistfile = os.path.join(scriptdir, 'blacklists.json')
+
+#settings file
+settingsfile = os.path.join(scriptdir, 'settings.json')
+
+
 def createprompt(template, blacklist, adj, sty, qual, matrix, count):
     global numadjectives
     global numstyles
     global numquality
     global usepromptmatrix
-    promptlog = open("log.txt", "a+")
     numadjectives = adj
     numstyles = sty
     numquality = qual
@@ -31,11 +43,18 @@ def createprompt(template, blacklist, adj, sty, qual, matrix, count):
                      "numsamples": numquality},
     }
     global outputprompt
-    for c in range(count):
-        outputprompt = give_output(prompts, template, blacklist)
-        print(f'\n{outputprompt}\n')
-        promptlog.write(outputprompt + "\n\n")
-    return outputprompt
+    global outputs
+    # from now on, any repetitive/large I/O actions should be saved outside of loops after completing them
+    # to avoid bottlenecks
+    outputs = []
+    with open(log, 'r+') as logfile:
+        for c in range(count):
+            outputprompt = give_output(prompts, template, blacklist)
+            outputs.append(outputprompt)
+        existing_text = logfile.read()
+        logfile.seek(0)
+        logfile.write('\n\n'.join(reversed(outputs)) + '\n\n' + existing_text)
+    return outputs[-1]
 
 def give_output(prompts, template, blacklist):
     keywords = re.findall(r'\[(.*?)\]', template)
@@ -70,62 +89,98 @@ def search_dict(prompts, target):
                 return result
 
 
+def createblankmissingfiles():
+    if not os.path.exists(log):
+        with open(log, 'w') as file:
+            file.write("\n")
+    if not os.path.exists(templatefile):
+        with open(templatefile,'w') as file:
+            d = {}
+            json.dump(d, file)
+    if not os.path.exists(blacklistfile):
+        with open(blacklistfile, 'w') as file:
+            d = {}
+            json.dump(d, file)
+
+
 def loadsettings():
-    filepath1 = os.path.join(scriptdir, 'settings.json')
-    with open(filepath1, 'r') as f:
+    with open(settingsfile, 'r') as f:
         settings = json.load(f)
     return settings
 
 def loadlog():
-    with open("log.txt", 'r') as promptlog:
+    with open(log, 'r') as promptlog:
         return promptlog.read()
 
 def clearlog():
-    with open("log.txt", 'w') as promptlog:
+    with open(log, 'w') as promptlog:
         promptlog.close()
 
-def A1111export(a1111, a1111neg, a1111steps, a1111cfg, a1111sampler, a1111seed, a1111width,
+def a1111export(a1111, a1111neg, a1111steps, a1111cfg, a1111sampler, a1111seed, a1111width,
                                            a1111height):
-    if a1111 == True:
-        if a1111seed == 1:
-            a1111seed = rn.randint(1, 1999999999)
-        A1111output = (f'--prompt "{outputprompt}" --negative_prompt "{a1111neg}" '
-                       f'--steps {a1111steps} --cfg_scale {a1111cfg} '
-                       f'--sampler_name "{a1111sampler}" --seed {a1111seed}'
-                       f' --width {a1111width} --height {a1111height}')
-        filepath1 = os.path.join(scriptdir, 'A1111list.txt')
-        with open(filepath1, 'a') as file:
-            saveout = A1111output + (f'\n\n')
-            file.write(saveout)
-        filepath2 = os.path.join(scriptdir, 'A1111recent.txt')
+    filepath1 = os.path.join(scriptdir, 'A1111list.txt')
+    filepath2 = os.path.join(scriptdir, 'A1111recent.txt')
+    if not os.path.exists(filepath1):
+        with open(filepath1, 'w') as file:
+            file.write("\n")
+    if not os.path.exists(filepath2):
         with open(filepath2, 'w') as file:
-            file.write(A1111output)
-        return gr.update(value=A1111output, visible=True)
+            file.write("\n")
+    if a1111 == True:
+        with open(filepath1, 'r+') as a1111log, open(filepath2, 'w') as a1111rec:
+            #from now on, any repetitive/large I/O actions should be saved outside of loops after completing them
+            #to avoid bottlenecks
+            tosavea1111log = []
+            initialseed = a1111seed
+            for output in outputs:
+                if initialseed == 1:
+                    a1111seed = rn.randint(1, 1999999999)
+                A1111output = (f'--prompt "{output}" --negative_prompt "{a1111neg}" '
+                               f'--steps {a1111steps} --cfg_scale {a1111cfg} '
+                               f'--sampler_name "{a1111sampler}" --seed {a1111seed}'
+                               f' --width {a1111width} --height {a1111height}')
+                tosavea1111log.append(A1111output)
+            existing_text = a1111log.read()
+            a1111log.seek(0)
+            a1111log.write('\n\n'.join(reversed(tosavea1111log)) + '\n\n' + existing_text)
+            a1111rec.write(A1111output)
+            return gr.update(value=A1111output, visible=True)
+
 
 def invokeexport(invoke, invneg, invwidth, invheight, inviter, invsteps, invcfg, invseed, invsampler,
                  invoutputdir, invhires, invgrid):
-    if invoke == True:
-        if invseed == 1:
-            invseed = rn.randint(1, 1999999999)
-
-        invoutput = (f'{outputprompt} [{invneg}] -W{invwidth} '
-                     f'-H{invheight} -n{inviter} '
-                     f'-s{invsteps} -C{invcfg} '
-                     f'-S{invseed} -A{invsampler} '
-                     f'-o{invoutputdir}')
-        if invhires:
-            invoutput += (f' --hires_fix')
-        if invgrid:
-            invoutput += (f' -g')
-        filepath1 = os.path.join(scriptdir, 'Invokelist.txt')
-        with open(filepath1, 'a') as file:
-            saveinvout = invoutput + (f'\n\n')
-            file.write(saveinvout)
-        filepath2 = os.path.join(scriptdir, 'Invokerecent.txt')
+    filepath1 = os.path.join(scriptdir, 'Invokelist.txt')
+    filepath2 = os.path.join(scriptdir, 'Invokerecent.txt')
+    if not os.path.exists(filepath1):
+        with open(filepath1, 'w') as file:
+            file.write("\n")
+    if not os.path.exists(filepath2):
         with open(filepath2, 'w') as file:
-            saveinvout = invoutput
-            file.write(saveinvout)
-        return gr.update(value=invoutput, visible=True)
+            file.write("\n")
+    if invoke == True:
+        with open(filepath1, 'r+') as invokelog, open(filepath2, 'w') as invokerec:
+            #from now on, any repetitive/large I/O actions should be saved outside of loops after completing them
+            #to avoid bottlenecks
+            tosaveinvokelog = []
+            initialseed = invseed
+            for output in outputs:
+                if initialseed == 1:
+                    invseed = rn.randint(1, 1999999999)
+                invoutput = (f'{output} [{invneg}] -W{invwidth} '
+                             f'-H{invheight} -n{inviter} '
+                             f'-s{invsteps} -C{invcfg} '
+                             f'-S{invseed} -A{invsampler} '
+                             f'-o{invoutputdir}')
+                if invhires:
+                    invoutput += (f' --hires_fix')
+                if invgrid:
+                    invoutput += (f' -g')
+                tosaveinvokelog.append(invoutput)
+            existing_text = invokelog.read()
+            invokelog.seek(0)
+            invokelog.write('\n\n'.join(reversed(tosaveinvokelog)) + '\n\n' + existing_text)
+            invokerec.write(invoutput)
+            return gr.update(value=invoutput, visible=True)
 
 
 def copy2clip(txt): #Only works on windows, if it were mac '|clip' would be replaced with '|pbcopy' .
@@ -136,40 +191,40 @@ def getList(d):
     return [*d]
 
 def templatelist():
-    filepath1 = os.path.join(scriptdir, 'templates.json')
-    with open(filepath1, "r") as file:
-        templates = json.load(file)
-    key_list = list(templates.keys())
+    with open(templatefile, "r") as file:
+        try:
+            templates = json.load(file)
+            key_list = list(templates.keys())
+        except KeyError:
+            key_list = "PlaceholderIfNoTemplatesFound"
     return key_list
 
 def createtemplate(template, tempname):
     templates[tempname] = template
-    filepath1 = os.path.join(scriptdir, 'templates.json')
-    with open(filepath1, "w") as savedtemps:
+    with open(templatefile, "w") as savedtemps:
         json.dump(templates, savedtemps)
 
 def openTemplates():
-    filepath1 = os.path.join(scriptdir, 'templates.json')
-    with open(filepath1, 'r') as openfile:
+    with open(templatefile, 'r') as openfile:
         templates = json.load(openfile)
     return templates
 
 def blacklistlist():
-    filepath1 = os.path.join(scriptdir, 'blacklists.json')
-    with open(filepath1, "r") as keys:
-        b = json.load(keys)
-    key_blacks = list(b.keys())
+    with open(blacklistfile, "r") as keys:
+        try:
+            b = json.load(keys)
+            key_blacks = list(b.keys())
+        except KeyError:
+            key_blacks = "PlaceholderIfNoBlacklistsFound"
     return key_blacks
 
 def createblacklist(blacklist, blacklistname):
-    filepath1 = os.path.join(scriptdir, 'blacklists.json')
     blacklists[blacklistname] = blacklist
-    with open(filepath1, "w") as savedblack:
+    with open(blacklistfile, "w") as savedblack:
         json.dump(blacklists, savedblack)
 
 def openblacklist():
-    filepath1 = os.path.join(scriptdir, 'blacklists.json')
-    with open(filepath1, 'r') as bl:
+    with open(blacklistfile, 'r') as bl:
         blacklists = json.load(bl)
     return blacklists
 
@@ -193,6 +248,7 @@ def main():
     global templates
     global settings
     global blacklists
+    createblankmissingfiles()
     settings = loadsettings()
     templates = openTemplates()
     blacklists = openblacklist()
@@ -203,7 +259,7 @@ def main():
             with gr.Row():
                 with gr.Column(scale=1, min_width=300):
                     type = gr.Dropdown(getList(key_list))
-                    count = gr.Number(value=1, label="Count", precision=0)
+                    count = gr.Number(value=1, label="Number of prompts", precision=0)
                     template = gr.Textbox(label="Template", interactive=True, placeholder="Input text and bracketed references to lists, "
                                                                         "see default templates for examples")
                     adj = gr.Slider(label="Adjectives to list", minimum=0, maximum=10, value=4, step=1)
@@ -280,11 +336,11 @@ def main():
             saveblack.click(fn=createblacklist, inputs=[blacklist, blackname], outputs=None)
         btn.click(createprompt, inputs=[template, blacklist, adj, sty, qual, matrix, count], outputs=prompt)
         clearLog.click(fn=clearlog, inputs=None, outputs=None)
-        clearLog.click(fn=loadlog, inputs=None, outputs=logTextBox)
+        #clearLog.click(fn=loadlog, inputs=None, outputs=logTextBox)
         a1111.change(fn=hideA1111output, inputs=a1111, outputs=a1111rec)
         invoke.change(fn=hideinvokeoutput, inputs=invoke, outputs=invokerec)
         prompt.change(fn=loadlog, inputs=None, outputs=logTextBox)
-        prompt.change(fn=A1111export, inputs=[a1111, a1111neg, a1111steps, a1111cfg, a1111sampler, a1111seed, a1111width,
+        prompt.change(fn=a1111export, inputs=[a1111, a1111neg, a1111steps, a1111cfg, a1111sampler, a1111seed, a1111width,
                                         a1111height], outputs=a1111rec)
         prompt.change(fn=invokeexport, inputs=[invoke, invneg, invwidth, invheight, inviter, invsteps,
                                            invcfg, invseed, invsampler, invoutputdir, invhires, invgrid], outputs=invokerec)
