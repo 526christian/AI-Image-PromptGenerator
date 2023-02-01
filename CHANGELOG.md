@@ -4,6 +4,8 @@ Any notable and major updates will be listed here going forward.
 
 ## Update on Jan 31st
 
+The below changes were made to `promptgen.py`.
+
 ### Changed
 
 * Log.txt and log file in the UI box now read from newest to oldest.
