@@ -125,7 +125,7 @@ prompts = {
                         'river', 'valley', 'house near a lake', 'house', 'house near the beach', 'skyscrapers',
                         'nature', 'town', 'forest', 'swamp', 'urban landscape', 'natural landscape', 'alien landscape',
                         'city', 'town streets', 'liminal space', 'abandoned building', 'fort', 'thunderstorm',
-                        'snowstorm', 'amusement park', 'water park', 'jurassic park', 'mini golf course'
+                        'snowstorm', 'amusement park', 'water park', 'jurassic park', 'mini golf course',
                         'nature park', 'battlefield', 'castle', 'detailed background', 'epic sky', 'kitchen', 'bedroom',
                         'living room', 'office', 'throne room', 'cockpit', 'fireplace', 'cargo bay', 'dock', 'meadow',
                         'stream', 'cave', 'stadium', 'alleyway', 'market', 'theater', 'workshop', 'field', 'farm',
