@@ -225,7 +225,7 @@ prompts = {
 
         "AllSets": [
             'street', 'beach', 'mountainous landscape', 'landscape', 'lake', 'city', 'river', 'valley',
-            'house near a lake', ' mini golf course', 'water park', 'amusement park', ' jurassic park'
+            'house near a lake', ' mini golf course', 'water park', 'amusement park', ' jurassic park',
             'house', 'the beach', 'skyscrapers', 'nature', 'town', 'forest', 'swamp', 'urban landscape',
             'natural landscape',
             'alien landscape', 'city streets', 'town streets', 'liminal space', 'abandoned building', 'fort',
