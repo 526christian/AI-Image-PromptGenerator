@@ -292,12 +292,11 @@ prompts = {
                    'grimdark', 'linocut', 'film noir', 'acrylic painting', 'retro', 'matte painting', 'matte photo',
                    'dye-transfer', 'parallax', 'speed painting', 'pastel painting', 'chiaroscuro', 'flat shading',
                    'flat shading', 'cyberdelic', 'dieselpunk', 'rainbowcore', 'pop art', 'steampunk', 'photorealism',
-                   'retrofuturistic', ],
+                   'retrofuturistic', 'soft focus', 'low light', 'gritty',],
 
         "Qualities": ['realistic', '8k', '3840x2160', 'detailed', 'hyperdetailed', 'sharp focus', 'masterpiece', 'absurdres',
                      'highres', 'professional', 'studio quality', 'HQ', 'UHD', 'HDR',
-                     'volumetric lighting', 'raytracing', 'ambient occlusion', 'trending on artstation', 'photojournalism', 
-                     'soft focus', 'high contrast', 'low light', 'gritty', 'depth of field', ],
+                     'volumetric lighting', 'raytracing', 'ambient occlusion', 'trending on artstation', 'photojournalism',],
 
     },
 }
