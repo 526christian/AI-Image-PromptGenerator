@@ -1,0 +1,41 @@
+tank
+train
+motorcycle
+mech suit
+AT-AT
+pickup truck
+semi truck
+car
+sports car
+muscle car
+exotic car
+personnel carrier
+police cruiser
+bus
+bicycle
+limousine
+double-decker bus
+boxcar
+go-kart
+forklift
+golf cart
+bumper car
+sled
+sleigh
+unicycle
+ATV
+skateboard
+lawn mower
+wheelchair
+fire truck
+ambulance
+bulldozer
+construction truck
+farm tractor
+dune buggy
+monster truck
+hot rod
+military vehicle
+street racer
+touring car
+off-road vehicle
