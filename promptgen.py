@@ -63,6 +63,7 @@ def build_dictionary(promptpath):
             if filename.endswith(".txt"):
                 with open(os.path.join(dirpath, filename), "r") as f:
                     content = f.readlines()
+                    content = [line for line in content if not line.startswith("#")]
                     content = [line.strip() for line in content]
                     sub_dict = promptdict
                     for subdir in os.path.relpath(dirpath, promptpath).split(os.sep):
