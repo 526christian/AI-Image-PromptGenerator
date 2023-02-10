@@ -2,6 +2,24 @@ Any notable and major updates will be listed here going forward.
 
 # Changelog
 
+## Update on Feb 10th
+
+### Changed
+
+* Prompts are now stored as lists in .txts. This means you can now add, remove, or relocate entire prompt lists extremely easily, as well as add prompts from existing lists, like [jumbo and devilkkw](https://github.com/adieyal/sd-dynamic-prompts/tree/main/collections)'s prompts for the Dynamic Prompts extension. The keywords still function the same. Simply type the filename of the .txt in brackets, without '.txt'.
+
+### Added
+
+* A script for exporting your existing dicts.py into .txts for use in the new structure, in case you modified it at all.
+
+### Removed
+
+* dicts.py as it won't be needed from now on.
+
+### Fixes
+
+N/A
+
 ## Update on Jan 31st
 
 The below changes were made to `promptgen.py`.
