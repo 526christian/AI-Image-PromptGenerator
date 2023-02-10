@@ -1,13 +1,13 @@
 import random as rn
 import gradio as gr
 from subprocess import check_call
-from dicts import prompts
-import promptgen as pr
 import json
 import re
 import os
 
 scriptdir = os.path.dirname(os.path.abspath(__file__))
+
+promptpath = os.path.join(scriptdir, 'prompts')
 
 #putting log file in script directory
 log = os.path.join(scriptdir, 'log.txt')
@@ -55,6 +55,22 @@ def createprompt(template, blacklist, adj, sty, qual, matrix, count):
         logfile.seek(0)
         logfile.write('\n\n'.join(reversed(outputs)) + '\n\n' + existing_text)
     return outputs[-1]
+
+def build_dictionary(promptpath):
+    promptdict = {}
+    for dirpath, dirnames, filenames in os.walk(promptpath):
+        for filename in filenames:
+            if filename.endswith(".txt"):
+                with open(os.path.join(dirpath, filename), "r") as f:
+                    content = f.readlines()
+                    content = [line.strip() for line in content]
+                    sub_dict = promptdict
+                    for subdir in os.path.relpath(dirpath, promptpath).split(os.sep):
+                        sub_dict = sub_dict.setdefault(subdir, {})
+                    keyname = filename.replace(".txt", "")
+                    sub_dict[keyname] = content
+    return promptdict
+
 
 def give_output(prompts, template, blacklist):
     keywords = re.findall(r'\[(.*?)\]', template)
@@ -248,12 +264,14 @@ def main():
     global templates
     global settings
     global blacklists
+    global prompts
     createblankmissingfiles()
     settings = loadsettings()
     templates = openTemplates()
     blacklists = openblacklist()
     key_blacks = blacklistlist()
     key_list = templatelist()
+    prompts = build_dictionary(promptpath)
     with gr.Blocks() as demo:
         with gr.Tab("Generate"):
             with gr.Row():

@@ -1,0 +1,69 @@
+knife
+weapon
+flower
+plushie
+mirror
+glass
+cape
+backpack
+dress
+suit
+bodysuit
+artifact
+map
+sword
+carbine
+smartphone
+book
+walking stick
+drink
+lantern
+mask
+gas mask
+hat
+tattoos
+guitar
+crystal
+gem
+ring
+jewelry
+bandana
+amulet
+shield
+pouch
+headphones
+gloves
+scarf
+tophat
+monocle
+scroll
+dagger
+skirt
+tiara
+crown
+staff
+wand
+belt
+cell phone
+broom
+pitchfork
+techwear
+long hair
+short hair
+helmet
+animal ears
+spear
+mustache
+cane
+umbrella
+fan
+compass
+flashlight
+grimoire
+locket
+microphone
+musket
+perfume
+rope
+snorkel
+watch

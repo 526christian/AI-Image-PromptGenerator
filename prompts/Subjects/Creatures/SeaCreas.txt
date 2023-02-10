@@ -1,0 +1,41 @@
+shark
+Cthulhu
+kraken
+megalodon
+fish
+octopus
+Lochness Monster
+sea monster
+giant squid
+deep sea giant isopod
+crab
+lobster
+mermaid
+leviathan
+water dragon
+sea serpent
+eel
+jellyfish
+clam
+starfish
+manta ray
+whale
+dolphin
+seal
+otter
+walrus
+seahorse
+cuttlefish
+ray
+crustacean
+porpoise
+turtle
+tuna
+salmon
+shrimp
+hippopotamus
+squid
+stingray
+prawn
+oyster
+urchin

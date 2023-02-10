@@ -1,0 +1,27 @@
+ship
+galleon
+pirate ship
+frigate
+boat
+submarine
+aircraft carrier
+speedboat
+The Flying Dutchman
+dreadnought
+icebreaker
+cruise ship
+hovercraft
+canoe
+kayak
+paddleboard
+surfboard
+yacht
+hydrofoil
+sailboat
+rowboat
+raft
+dinghy
+ferry
+container ship
+paddle steamer
+viking ship
