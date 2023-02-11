@@ -10,6 +10,8 @@ Acquire the latest version by git cloning the repository, or [download directly]
 
 Input bracketed [names of lists in the phrase dictionary](https://github.com/526christian/AI-Image-PromptGenerator/wiki/Phrase-keywords-and-structure) to get a random selection, and use the special keywords [listadj], [liststy], and [listqual] to get a list of random visual adjectives, styles, and image quality tokens. Fill in random phrases to add some flavor to your prompts, or come up with new ones entirely.
 
+Want your own keywords and lists? [It's super easy, barely an inconvenience.](https://github.com/526christian/AI-Image-PromptGenerator/wiki/How-to:-Add,-remove,-or-change-phrases)
+
 Use the sliders to instantly change the amount of random phrases picked from [listadj], [liststy], and [listqual] for your needs and to adjust to how different models respond.
 
 A variety of basic default templates are provided for inspiration, and to show off how the inputs work.
@@ -34,11 +36,11 @@ Don't want certain phrases in your outputs, but don't want to delete them comple
 
 Some planned features include:
 
+* A completely new, sleeker, customizable UI
 * Settings / state saving
 * New, and more specific phrase lists and categories
-* A complete restructure of the phrase selection system to add your own lists and categories easier
-* A prompt log box
 * Importing and conversion between UI Stable Diffusion implementations' prompt syntax
+* Realtime customizable list-keywords with sliders
 
 ## Install & startup
 
@@ -55,7 +57,7 @@ With Python3 out-of-the-way, open up a terminal / command prompt window, and typ
 ### Running the script
 And now you're ready to run the script whenever you please. All you'll have to do is access the script with a single command, 
 `python path/to/promptgen.py`:
-![Peek 2023-01-28 05-54](https://user-images.githubusercontent.com/122599135/215262858-05419e00-0618-4553-bb19-1a8868b721b8.gif)
+![Peek 2023-02-10 19-23](https://user-images.githubusercontent.com/122599135/218225924-5e5fa32a-3d06-4367-8494-1352cd10c197.gif)
 
 It's best to keep the script and its dependent files in a folder that you can access easily. That'll make it easier to cd to the directory, or simply just drag-and-drop the script into the CLI.
 
