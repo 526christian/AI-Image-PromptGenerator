@@ -2,6 +2,14 @@ Any notable and major updates will be listed here going forward.
 
 # Changelog
 
+## Update #2 on Feb 10th (7 PM EST)
+
+### Changed
+
+* The template and blacklist jsons were moved to a json folder, and all of the log / A1111 / InvokeAI .txts to an outputs folder for organization, so the main folder isn't clogged up with random files.
+* The code was restructured, with all of the heavy lifting done by the scripts in the scripts folder. The main UI script still starts and works the same. This was done in preparation for a future move to a new UI and adding new, advanced features.
+* Settings file is deprecated for the time being.
+
 ## Update on Feb 10th
 
 ### Changed
