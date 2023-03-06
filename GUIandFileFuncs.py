@@ -1,28 +1,24 @@
-import random as rn
-import gradio as gr
-from subprocess import check_call
 import json
-import re
 import os
 
-scriptdir = os.path.dirname(os.path.abspath(__file__))
+import gradio as gr
 
-head, tail = os.path.split(scriptdir)
+root = os.path.dirname(os.path.abspath(__file__))
 
-promptpath = os.path.join(head, 'prompts')
+promptpath = os.path.join(root, 'prompts')
 
 #putting log files in their own folder
-log = os.path.join(head, 'outputs', 'log.txt')
-outputdir = os.path.join(head, 'outputs')
+log = os.path.join(root, 'outputs', 'log.txt')
+outputdir = os.path.join(root, 'outputs')
 
 #templates file
-templatefile = os.path.join(head, 'jsons', 'templates.json')
+templatefile = os.path.join(root, 'jsons', 'templates.json')
 
 #blacklists file
-blacklistfile = os.path.join(head, 'jsons', 'blacklists.json')
+blacklistfile = os.path.join(root, 'jsons', 'blacklists.json')
 
 #settings file
-settingsfile = os.path.join(head, 'jsons', 'settings.json')
+settingsfile = os.path.join(root, 'jsons', 'settings.json')
 
 def createblankmissingfiles():
     if not os.path.exists(log):
@@ -39,13 +35,12 @@ def createblankmissingfiles():
 
 
 def loadsettings():
-    with open(settingsfile, 'r') as f:
-        settings = json.load(f)
-    return settings
+    with open(settingsfile) as f:
+        return json.load(f)
 
 
 def loadlog():
-    with open(log, 'r') as promptlog:
+    with open(log) as promptlog:
         return promptlog.read()
 
 def clearlog():
@@ -71,12 +66,12 @@ def createtemplate(template, tempname):
 
 def openTemplates():
     global templates
-    with open(templatefile, 'r') as openfile:
+    with open(templatefile) as openfile:
         templates = json.load(openfile)
     return templates
 
 def blacklistlist():
-    with open(blacklistfile, "r") as keys:
+    with open(blacklistfile) as keys:
         try:
             b = json.load(keys)
             key_blacks = list(b.keys())
@@ -91,17 +86,14 @@ def createblacklist(blacklist, blacklistname):
 
 def openblacklist():
     global blacklists
-    with open(blacklistfile, 'r') as bl:
-        blacklists = json.load(bl)
-    return blacklists
+    with open(blacklistfile) as bl:
+        return json.load(bl)
 
 def updatetemplatebox(name):
-    template = templates[name]
-    return gr.update(value=template)
+    return gr.update(value=templates[name])
 
 def updateblacklistbox(name):
-    blacklist = blacklists[name]
-    return gr.update(value=blacklist)
+    return gr.update(value=blacklists[name])
 
 def hideA1111output(a1111):
     if not a1111:

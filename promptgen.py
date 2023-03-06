@@ -1,14 +1,8 @@
-import random as rn
 import gradio as gr
-from subprocess import check_call
-import json
-import re
-import os
-import sys
-scriptdir = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(os.path.join(scriptdir, "scripts"))
-import main as gen
+
+import scripts.main as gen
 import GUIandFileFuncs as guifi
+
 
 def main():
     guifi.createblankmissingfiles()
