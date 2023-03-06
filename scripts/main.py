@@ -1,29 +1,19 @@
-import random as rn
-import gradio as gr
-from subprocess import check_call
-import json
-import re
 import os
-import GUIandFileFuncs as guifi
+import random as rn
+import re
+
+import gradio as gr
 
 scriptdir = os.path.dirname(os.path.abspath(__file__))
 
-head, tail = os.path.split(scriptdir)
+root, _ = os.path.split(scriptdir)
 
-promptpath = os.path.join(head, 'prompts')
+promptpath = os.path.join(root, 'prompts')
 
 #putting log files in their own folder
-log = os.path.join(head, 'outputs', 'log.txt')
-outputdir = os.path.join(head, 'outputs')
+log = os.path.join(root, 'outputs', 'log.txt')
+outputdir = os.path.join(root, 'outputs')
 
-#templates file
-templatefile = os.path.join(head, 'jsons', 'templates.json')
-
-#blacklists file
-blacklistfile = os.path.join(head, 'jsons', 'blacklists.json')
-
-#settings file
-settingsfile = os.path.join(head, 'jsons', 'settings.json')
 
 def createprompt(template, blacklist, adj, sty, qual, matrix, count):
     global numadjectives
@@ -120,7 +110,8 @@ def a1111export(a1111, a1111neg, a1111steps, a1111cfg, a1111sampler, a1111seed, 
     if not os.path.exists(filepath2):
         with open(filepath2, 'w') as file:
             file.write("\n")
-    if a1111 == True:
+
+    if a1111 is True:
         with open(filepath1, 'r+') as a1111log, open(filepath2, 'w') as a1111rec:
             #from now on, any repetitive/large I/O actions should be saved outside of loops after completing them
             #to avoid bottlenecks
@@ -151,7 +142,8 @@ def invokeexport(invoke, invneg, invwidth, invheight, inviter, invsteps, invcfg,
     if not os.path.exists(filepath2):
         with open(filepath2, 'w') as file:
             file.write("\n")
-    if invoke == True:
+
+    if invoke is True:
         with open(filepath1, 'r+') as invokelog, open(filepath2, 'w') as invokerec:
             #from now on, any repetitive/large I/O actions should be saved outside of loops after completing them
             #to avoid bottlenecks
@@ -166,9 +158,9 @@ def invokeexport(invoke, invneg, invwidth, invheight, inviter, invsteps, invcfg,
                              f'-S{invseed} -A{invsampler} '
                              f'-o{invoutputdir}')
                 if invhires:
-                    invoutput += (f' --hires_fix')
+                    invoutput += (' --hires_fix')
                 if invgrid:
-                    invoutput += (f' -g')
+                    invoutput += (' -g')
                 tosaveinvokelog.append(invoutput)
             existing_text = invokelog.read()
             invokelog.seek(0)
