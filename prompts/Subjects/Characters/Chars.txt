@@ -1,10 +1,3 @@
 man
 woman
-girl
-boy
-man
-woman
-traveler
-man
-woman
 
