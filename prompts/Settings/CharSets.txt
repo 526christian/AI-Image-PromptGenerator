@@ -1,99 +1,170 @@
-street
-beach
-mountainous landscape
-landscape
-lake
-street level view city
-river
-valley
-house near a lake
-house
-house near the beach
-skyscrapers
-nature
-town
-forest
-swamp
-urban landscape
-natural landscape
-alien landscape
-city
-town streets
-liminal space
-abandoned building
-fort
-thunderstorm
-snowstorm
-amusement park
-water park
-jurassic park
-mini golf course
-nature park
-battlefield
-castle
-detailed background
-epic sky
-kitchen
-bedroom
-living room
-office
-throne room
-cockpit
-fireplace
-cargo bay
-dock
-meadow
-stream
-cave
-stadium
-alleyway
-market
-theater
-workshop
-field
-farm
-barn
-path
-jungle
-pond
-highway
-underground cave
-skyline
-horizon
-desert
-mesa
-misty island
-Arctic landscape
-cottage
-cabin in the woods
-tunnel
-hilly landscape
-bathroom
-village
-dining room
-hotel
-library
-Library of Alexandria
-pyramids
-shop
-suburb
-waterfall
-pier
-fountain
-volcanic landscape
-laboratory
-haunted house
-prison
-factory
-canyon
-church
-colosseum
-roller coaster
-palace
-bridge
-tundra
-aquarium
-hallway
-military base
-spaceship hangar
-alien city
+Gadgets
+Fashion
+Electronics
+Appliances
+Jewelry
+Furniture
+Cars
+Watches
+Toys
+Books
+Achievement
+Triumph
+Recognition
+Milestone
+Prosperity
+Leadership
+Victory
+Ambition
+Accomplishment
+Goals
+Meetings
+Teamwork
+Innovation
+Collaboration
+Entrepreneurship
+Corporate culture
+Networking
+Business strategy
+Financial planning
+Leadership
+Diversity
+Equality
+Inclusion
+Community
+Acceptance
+Belonging
+Tolerance
+Empowerment
+Representation
+Unity
+Artificial intelligence
+Robotics
+Augmented reality
+Cybersecurity
+Data analysis
+Internet of Things
+Coding
+Automation
+Cloud computing
+Wearable tech
+Exercise
+Nutrition
+Yoga
+Meditation
+Gym
+Healthy eating
+Wellness
+Mental health
+Weightlifting
+Running
+Investments
+Entrepreneur
+Stock market
+Financial planning
+Real estate
+Start-up
+Budgeting
+Passive income
+Wealth building
+Retirement planning
+Skyscrapers
+Modern design
+Urban planning
+Sustainable architecture
+Interior design
+Futuristic architecture
+Green buildings
+Renovation
+Bridge design
+Architectural innovation
+Futuristic technology
+Space exploration
+Futuristic cities
+Advanced transportation
+Sci-fi future
+Artificial intelligence
+Futuristic architecture
+Environmental future
+Futuristic fashion
+Futuristic art
+Adventure
+Exploration
+Destination
+Culture
+Backpacking
+Vacation
+Sightseeing
+Wanderlust
+Adventure sports
+Relaxation
+Cuisine
+Cooking
+Gourmet
+Delicious
+Recipes
+Dining
+Ingredients
+Culinary arts
+Food culture
+Fusion
+Athletics
+Competition
+Teamwork
+Athletes
+Spectator
+Training
+Victory
+Sportsmanship
+Athlete's journey
+Adrenaline
+Creativity
+Imagination
+Concept
+Abstraction
+Philosophy
+Mindfulness
+Metaphor
+Perception
+Thought
+Perspective
+Wilderness
+Campfire
+Adventure
+Outdoors
+Camping gear
+Nature
+Campsite
+Survival
+Bonfire
+Stargazing
+Faces
+Expressions
+Emotions
+Personality
+Identity
+Portraiture
+Human connection
+Artistry
+Character
+Storytelling
+Palette
+Brushstrokes
+Colorful objects
+Vibrant hues
+Artistic creation
+Abstract composition
+Paint splatter
+Texture
+Color theory
+Visual aesthetics
+Entrepreneurship
+Leadership
+Networking
+Start-up
+Innovation
+Strategy
+Profitability
+Investment
+Workplace culture
+Marketing strategies
