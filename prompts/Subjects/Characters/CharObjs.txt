@@ -2,6 +2,17 @@ knife
 weapon
 flower
 plushie
+chef
+romantic couple
+friends
+baker
+doctor
+DJ
+musician
+fisherman
+hiker
+biker
+office
 mirror
 glass
 cape
