@@ -1,4 +1,7 @@
-# AI-Image-PromptGenerator
+# AI-Image-PromptGenerator (archived)
+
+**I lost the dopamine to keep this up a year ago. I'm able to pick it up again now, but I'm not sure it's worth doing after over a year of new tools. In any case, if anyone can find some benefit from this old code and prompt tags, I encourage doing so.**
+
 PromptGen is a flexible UI script to help create and expand on prompts for generative AI art models, such as Stable Diffusion and MidJourney. Get inspired, and create. Multi-platform, and completely independent. 
 
 Acquire the latest version by git cloning the repository, or [download directly](https://downgit.evecalm.com/#/home?url=https://github.com/526christian/AI-Image-PromptGenerator). For additional info and guides, see the [wiki pages](https://github.com/526christian/AI-Image-PromptGenerator/wiki). Also see the [changelog](https://github.com/526christian/AI-Image-PromptGenerator/blob/main/CHANGELOG.md) to see what updates have been made to help know when to re-acquire files.
